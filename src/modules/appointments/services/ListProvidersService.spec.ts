@@ -3,10 +3,10 @@ import 'reflect-metadata';
 import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository';
 import ListProvidersService from './ListProvidersService';
 
-describe('ListProviders', () => {
-  let fakeUsersRepository: FakeUsersRepository;
-  let listProviders: ListProvidersService;
+let fakeUsersRepository: FakeUsersRepository;
+let listProviders: ListProvidersService;
 
+describe('ListProviders', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
 
