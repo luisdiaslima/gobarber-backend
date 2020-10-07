@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
-import ListProviderDayService from './ListProviderDayService';
+import ListProviderDayService from './ListProviderDayAvailabilityService';
 
 let listProviderDay: ListProviderDayService;
 let fakeAppointmentsRepository: FakeAppointmentsRepository;

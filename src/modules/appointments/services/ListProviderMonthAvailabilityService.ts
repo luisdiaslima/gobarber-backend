@@ -1,5 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 import { getDaysInMonth, getDate } from 'date-fns';
+
 import IAppointmentsRepository from '../repositories/iAppointmentsRepository';
 
 interface IRequest {
@@ -10,11 +11,11 @@ interface IRequest {
 
 type IResponse = Array<{
   day: number;
-  available: boolean;
+  avaiable: boolean;
 }>;
 
 @injectable()
-class ListProviderMonthService {
+class ListProviderMonthAvailabilityService {
   constructor(
     @inject('AppointmentsRepository')
     private appointmentsRepository: IAppointmentsRepository,
@@ -37,7 +38,7 @@ class ListProviderMonthService {
 
     const eachDayArray = Array.from(
       { length: numberOfDaysInMonth },
-      (value, index) => index + 1,
+      (_, index) => index + 1,
     );
 
     const availability = eachDayArray.map(day => {
@@ -47,7 +48,7 @@ class ListProviderMonthService {
 
       return {
         day,
-        available: appointmentsInDay.length < 10,
+        avaiable: appointmentsInDay.length < 10,
       };
     });
 
@@ -55,4 +56,4 @@ class ListProviderMonthService {
   }
 }
 
-export default ListProviderMonthService;
+export default ListProviderMonthAvailabilityService;
